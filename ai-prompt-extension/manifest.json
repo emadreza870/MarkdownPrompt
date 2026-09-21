@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "مدیریت پرامپت هوش مصنوعی",
+  "version": "1.0",
+  "description": "افزونه‌ای برای نوشتن، ویرایش و مدیریت پرامپت‌های هوش مصنوعی با پشتیبانی از ChatGPT، Gemini، Claude و Grok",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://claude.ai/*",
+    "https://grok.x.ai/*",
+    "https://x.com/i/grok/*"
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "باز کردن پنل پرامپت"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://grok.x.ai/*",
+        "https://x.com/i/grok/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدیریت پرامپت هوش مصنوعی</title>
+  <link rel="stylesheet" href="sidepanel.css">
+  <!-- کتابخانه TinyMCE برای ویرایشگر WYSIWYG -->
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✏️ ویرایشگر پرامپت</h1>
+      <div class="theme-toggle">
+        <button id="themeBtn" title="تغییر تم">🌓</button>
+      </div>
+    </header>
+
+    <div class="editor-section">
+      <div class="toolbar">
+        <button data-command="bold" title="ضخیم"><b>B</b></button>
+        <button data-command="italic" title="ایتالیک"><i>I</i></button>
+        <button data-command="underline" title="زیرخط"><u>U</u></button>
+        <button data-command="formatBlock" data-value="H1" title="تیتر 1">H1</button>
+        <button data-command="formatBlock" data-value="H2" title="تیتر 2">H2</button>
+        <button data-command="insertUnorderedList" title="لیست نقطه‌ای">• لیست</button>
+        <button data-command="insertOrderedList" title="لیست شماره‌دار">1. لیست</button>
+        <button data-command="insertTable" title="درج جدول">📊 جدول</button>
+        <button data-command="code" title="درج کد">&lt;/&gt; کد</button>
+        <button data-command="removeFormat" title="حذف فرمت">❌</button>
+      </div>
+      <div id="editor" contenteditable="true"></div>
+      <div class="editor-actions">
+        <button id="saveBtn" class="btn-primary">💾 ذخیره پرامپت</button>
+        <button id="clearBtn" class="btn-secondary">🗑️ پاک کردن</button>
+      </div>
+    </div>
+
+    <div class="prompts-list-section">
+      <h2>📋 پرامپت‌های ذخیره شده</h2>
+      <div id="promptsList" class="prompts-list"></div>
+    </div>
+
+    <!-- مودال برای نمایش/ویرایش پرامپت -->
+    <div id="promptModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3 id="modalTitle">جزئیات پرامپت</h3>
+        <div id="modalEditor" contenteditable="true"></div>
+        <div class="modal-actions">
+          <button id="updateBtn" class="btn-primary">✅ به‌روزرسانی</button>
+          <button id="deleteBtn" class="btn-danger">🗑️ حذف</button>
+          <button id="copyMdBtn" class="btn-secondary">📋 کپی Markdown</button>
+          <button id="downloadMdBtn" class="btn-secondary">📥 دانلود فایل MD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
